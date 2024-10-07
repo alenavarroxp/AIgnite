@@ -20,7 +20,7 @@ export default function PrincipalPage() {
           </p>
         </div>
         <div className="mt-5">
-          <CustomButton onClick={scrollToStart} />
+          <CustomButton title="Get Started" onClick={scrollToStart} />
         </div>
       </div>
       <GitHubBadge />

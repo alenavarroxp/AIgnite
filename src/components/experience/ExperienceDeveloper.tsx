@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useAtom } from "jotai";
+import { experienceAtom } from "../../utils/atoms/experienceAtom";
 import Experience from "./Experience";
 
 export default function ExperienceDeveloper() {
-  const [experience, setExperience] = useState<string[]>([]);
+  const [experience, setExperience] = useAtom(experienceAtom)
 
   const experiences = [
     "Junior Developer",
@@ -27,6 +28,7 @@ export default function ExperienceDeveloper() {
       <div className="flex justify-start items-center gap-3 mt-2">
         {experiences.map((exp) => (
           <Experience
+            key={exp}
             exp={exp}
             experiences={experience}
             handleExperience={handleExperience}
