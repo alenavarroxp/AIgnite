@@ -11,7 +11,7 @@ export default function PrincipalPage() {
   };
 
   return (
-    <div className="flex justify-center items-center w-full h-full">
+    <div className="flex justify-center items-center w-full h-full z-10">
       <div className="flex flex-col justify-center items-center">
         <div className="text-white flex-col flex justify-center items-center">
           <AIgnite />
