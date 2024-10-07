@@ -1,5 +1,5 @@
 
-export default function SelectedTech({ selectedTechnologies }) {
+export default function SelectedTech({ selectedTechnologies}) {
   return (
     <div className="mt-6">
       <h2 className="text-lg text-white">Selected Technologies</h2>

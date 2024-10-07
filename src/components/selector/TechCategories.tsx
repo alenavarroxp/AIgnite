@@ -5,7 +5,7 @@ interface TechCategoriesProps {
   categorySelected: string;
   setCategorySelected: React.Dispatch<
     React.SetStateAction<
-      "Frontend" | "Frameworks" | "Backend" | "Librerias" | "DevOps" | "Mobile"
+      "Frontend" | "Backend" | "DevOps" | "Mobile" | "OtherLibraries"
     >
   >;
 }
