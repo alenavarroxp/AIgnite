@@ -1,23 +1,24 @@
 import { useAtom } from "jotai";
 import { useState } from "react";
-import { TechCategory, techData } from "../../../public/tech";
-import { Tech } from "../../types/Tech";
+import { Tech, TechCategory, techData } from "../../types/Tech";
 import { tecnologiesAtom } from "../../utils/atoms/technologiesAtom";
 
 import { experienceAtom } from "../../utils/atoms/experienceAtom";
 import { projectIdeasAtom } from "../../utils/atoms/projectIdeaAtom";
+import { promptAtom } from "../../utils/atoms/promptAtom";
 import { generateIdeas } from "../../utils/generateIdeas";
 import CustomButton from "../CustomButton";
 import ExperienceDeveloper from "../experience/ExperienceDeveloper";
 import TechCategories from "./TechCategories";
 import TechList from "./TechList";
 
-export default function TechContainer() {
+export default function PromptContainer() {
   const [categorySelected, setCategorySelected] =
     useState<TechCategory>("Frontend");
   const [tecnologySelected, setTecnologySelected] = useAtom(tecnologiesAtom);
   const [experiences] = useAtom(experienceAtom);
   const [, setProjectIdeas] = useAtom(projectIdeasAtom);
+  const [prompt, setPrompt] = useAtom(promptAtom);
 
   const toggleTechnology = (tech: Tech) => {
     if (tecnologySelected.includes(tech.name)) {
@@ -36,7 +37,8 @@ export default function TechContainer() {
   };
 
   const handleGenerateIdeas = () => {
-    generateIdeas(tecnologySelected, experiences, setProjectIdeas);
+    setProjectIdeas([]);
+    generateIdeas(tecnologySelected, experiences, setProjectIdeas, prompt);
     const section = document.getElementById("result");
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
@@ -45,7 +47,7 @@ export default function TechContainer() {
 
   return (
     <div className="flex w-full h-full">
-      <div className="flex flex-col items-center w-1/2 h-full ">
+      <div className="flex flex-col items-center w-1/2 h-full ml-4">
         <div className="flex-col justify-center items-center p-4">
           <h1 className="text-3xl font-medium text-white text-center">
             Technologies Selector
@@ -88,12 +90,24 @@ export default function TechContainer() {
           <ExperienceDeveloper />
         </div>
       </div>
-      <div className="flex flex-col items-end justify-end w-1/2 h-full ">
-        <div className="p-4">
-          <CustomButton
-            title="Generate Ideas"
-            onClick={() => handleGenerateIdeas()}
-          />
+      <div className="relative flex flex-col items-start justify-start w-1/2 h-full p-4">
+        <div className="flex-col justify-center items-center w-full mb-4">
+          <h1 className="text-3xl font-medium text-white text-center">
+            Custom prompt
+          </h1>
+          <h2 className="text-lg font-thin text-center text-white">
+            Write a custom prompt to generate your project ideas
+          </h2>
+        </div>
+        <textarea
+          className="bg-transparent w-full h-60 p-4 text-white font-thin border border-[#4b4580] rounded-lg placeholder:text-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none"
+          placeholder="Please enter your custom prompt in the format: 'Technologies: JavaScript, React; Experience: Junior Developer'. E.g., 'Generate project ideas for a web app using React and Node.js for a Senior Developer.'"
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+        />
+
+        <div className="absolute bottom-4 right-4">
+          <CustomButton title="Generate Ideas" onClick={handleGenerateIdeas} />
         </div>
       </div>
     </div>

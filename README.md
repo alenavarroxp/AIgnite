@@ -1,50 +1,47 @@
-# React + TypeScript + Vite
+# AIgnite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AIgnite is an innovative project idea generator that leverages the GEMINI API to provide developers with personalized project ideas. By selecting your preferred technology stack and indicating your experience level (Junior, Mid-level, Senior), AIgnite delivers tailored suggestions to help you start building your next project.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Technology-Based Suggestions**: Choose from a wide variety of programming languages, frameworks, and tools to receive project ideas specific to your chosen tech stack.
+- **Experience Level Customization**: Whether you're a beginner or an expert, AIgnite adapts to your level of experience and provides relevant project ideas.
+- **Diverse Project Ideas**: Get suggestions ranging from simple to complex, designed to challenge and enhance your skills.
 
-## Expanding the ESLint configuration
+## How It Works
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. **Choose a Technology**: Select the technology stack you're interested in (e.g., JavaScript, Python, React, etc.).
+2. **Specify Your Experience Level**: Identify yourself as Junior, Mid-level, or Senior to receive appropriately challenging projects.
+3. **Receive Project Ideas**: AIgnite will generate a curated list of project ideas, with brief descriptions and potential use cases.
+4. **Start Building**: Use these ideas as inspiration for your next project, whether it’s for your portfolio or real-world application development.
 
-- Configure the top-level `parserOptions` property like this:
+## Live Demo
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Try AIgnite instantly through our live demo hosted on Netlify:  
+🔗 [AIgnite Live Demo](https://aignite.netlify.app)
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Contributing
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+We encourage contributions from developers! If you'd like to contribute, here's how:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add new feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Open a pull request and provide a detailed description of the changes.
+
+## License
+
+This project is licensed under the MIT License. For more details, please refer to the [LICENSE](LICENSE) file.
+
+## Contact
+
+For questions, feedback, or suggestions:
+
+- **GitHub**: [alenavarroxp](https://github.com/alenavarroxp)
+- **Email**: [alejandronavarro.software@gmail.com](mailto:alejandronavarro.software@gmail.com)
+
+---
+
+Thank you for using AIgnite! We hope it inspires you to build amazing projects and take your skills to the next level.

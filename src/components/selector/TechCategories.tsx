@@ -1,4 +1,4 @@
-import { TechCategory } from "../../../public/tech";
+import { TechCategory } from "../../types/Tech";
 
 interface TechCategoriesProps {
   categories: TechCategory[];
